@@ -5,13 +5,13 @@ import 'package:sot_cooking/data/foodData.dart';
 
 class TimerTile extends StatefulWidget {
   final int index;
-  TimerTile(this.index)
-
+  TimerTile(this.index);
   @override
   _TimerTileState createState() => _TimerTileState();
 }
 
 class _TimerTileState extends State<TimerTile> {
+
   final timer = new TimerTool();
   @override
   Widget build(BuildContext context) {
@@ -31,8 +31,8 @@ class _TimerTileState extends State<TimerTile> {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.adjust_outlined),
-            title: Text("Fish"),
+            leading: CircleAvatar(backgroundImage: foodData[widget.index].image,),
+            title: Text(foodData[widget.index].name),
             onTap: () => {HapticFeedback.mediumImpact(), timer.startTimer(foodData[widget.index].duration)},
           ),
         ],
