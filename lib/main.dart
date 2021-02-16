@@ -1,45 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sot_cooking/widgets/timerList.dart';
 import 'package:sot_cooking/widgets/timerTile.dart';
 import 'package:sot_cooking/data/foodData.dart';
+import 'package:sot_cooking/models/foodType.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider<FoodModel>(
+      create: (_) => new FoodModel(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'SoT Cooking Assistant',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: MyHomePage(title: 'Sea of Thieves Cooking Assistant'),
+          primaryColor: Color.fromRGBO(89, 57, 63, 1.0),
+          accentColor: Color.fromRGBO(75, 191, 137, 1.0)),
+      home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
+class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Container(
-        child: ListView.builder(itemCount: foodData.length, itemBuilder: (context, index) {
-          return TimerTile(index);
-        },),
-        color: Colors.green.shade700,
+        child: Consumer<FoodModel>(builder: (context, timer, child) => TimerList(foodType: timer.foodData)),
+        color: Theme.of(context).primaryColor,
       ),
     );
   }

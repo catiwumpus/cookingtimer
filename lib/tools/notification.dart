@@ -13,14 +13,14 @@ class NotificationTool  {
     flutterLocalNotificationsPlugin.initialize(initSettings);
   }
 
-  showNotification() async {
+  showNotification(String foodName) async {
     var android = AndroidNotificationDetails(
         'id', 'channel ', 'description',
         priority: Priority.high, importance: Importance.max);
     var iOS = IOSNotificationDetails();
     var platform = new NotificationDetails(android: android, iOS: iOS);
     await flutterLocalNotificationsPlugin.show(
-        0, 'SoT Cooking Assistant', 'Your fish is done cooking, get it before it burns!', platform,
+        0, 'SoT Cooking Assistant', 'Your $foodName is done cooking, get it before it burns!', platform,
         payload: '');
   }
 }

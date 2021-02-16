@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:sot_cooking/tools/timer.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 import 'package:sot_cooking/data/foodData.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sot_cooking/models/foodType.dart';
 
-class TimerTile extends StatefulWidget {
-  final int index;
-  TimerTile(this.index);
-  @override
-  _TimerTileState createState() => _TimerTileState();
-}
+class TimerTile extends StatelessWidget {
+  final FoodType foodType;
 
-class _TimerTileState extends State<TimerTile> {
+  TimerTile({@required this.foodType});
 
-  final timer = new TimerTool();
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -24,16 +21,25 @@ class _TimerTileState extends State<TimerTile> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(5),
               child: LinearProgressIndicator(
-                value: timer.progress,
+                value: foodType.progress,
                 valueColor: AlwaysStoppedAnimation<Color>(
-                    Colors.lightGreenAccent),
+                    Theme.of(context).accentColor),
               ),
             ),
           ),
           ListTile(
-            leading: CircleAvatar(backgroundImage: foodData[widget.index].image,),
-            title: Text(foodData[widget.index].name),
-            onTap: () => {HapticFeedback.mediumImpact(), timer.startTimer(foodData[widget.index].duration)},
+            leading: CircleAvatar(
+              backgroundImage: foodType.image,
+            ),
+            title: Text(
+              foodType.name,
+              style: GoogleFonts.pirataOne(),
+            ),
+            onTap: () => {
+              HapticFeedback.mediumImpact(),
+              Provider.of<FoodModel>(context, listen: false)
+                  .startTimer(foodType)
+            },
           ),
         ],
       ),

@@ -4,6 +4,7 @@ class FoodType {
   String name;
   double duration;
   AssetImage image;
+  double progress;
 
-  FoodType({this.duration, this.name, this.image});
+  FoodType({this.duration, this.name, this.image, this.progress});
 }
