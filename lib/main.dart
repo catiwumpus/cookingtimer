@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sot_cooking/widgets/timerList.dart';
-import 'package:sot_cooking/widgets/timerTile.dart';
 import 'package:sot_cooking/data/foodData.dart';
-import 'package:sot_cooking/models/foodType.dart';
 
 void main() {
   runApp(

@@ -5,6 +5,7 @@ class FoodType {
   double duration;
   AssetImage image;
   double progress;
+  bool activeTimer;
 
-  FoodType({this.duration, this.name, this.image, this.progress});
+  FoodType({this.duration, this.name, this.image, this.progress, this.activeTimer});
 }

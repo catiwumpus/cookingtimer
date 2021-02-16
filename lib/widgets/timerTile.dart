@@ -7,7 +7,6 @@ import 'package:sot_cooking/models/foodType.dart';
 
 class TimerTile extends StatelessWidget {
   final FoodType foodType;
-
   TimerTile({@required this.foodType});
 
   @override
@@ -37,8 +36,11 @@ class TimerTile extends StatelessWidget {
             ),
             onTap: () => {
               HapticFeedback.mediumImpact(),
-              Provider.of<FoodModel>(context, listen: false)
-                  .startTimer(foodType)
+              if (!foodType.activeTimer)
+                {
+                  Provider.of<FoodModel>(context, listen: false)
+                      .startTimer(foodType)
+                }
             },
           ),
         ],

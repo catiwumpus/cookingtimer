@@ -1,9 +1,6 @@
-import 'dart:async';
-
 import 'package:sot_cooking/models/foodType.dart';
 import 'package:sot_cooking/widgets/timerTile.dart';
 import 'package:flutter/material.dart';
-import 'package:sot_cooking/data/foodData.dart';
 
 class TimerList extends StatelessWidget {
   final List<FoodType> foodType;
