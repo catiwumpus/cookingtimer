@@ -16,7 +16,7 @@ class NotificationTool  {
   showNotification(String foodName) async {
     var android = AndroidNotificationDetails(
         'id', 'channel ', 'description',
-        priority: Priority.high, importance: Importance.max);
+        priority: Priority.defaultPriority, importance: Importance.high);
     var iOS = IOSNotificationDetails();
     var platform = new NotificationDetails(android: android, iOS: iOS);
     await flutterLocalNotificationsPlugin.show(

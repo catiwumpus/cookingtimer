@@ -10,7 +10,7 @@ class FoodModel extends ChangeNotifier {
   List<FoodType> foodData = []
     ..add(FoodType(
         name: "Fish",
-        duration: 40,
+        duration: 35,
         image: AssetImage("assets/Fish_Ruby_SplashTail.png"),
         progress: 0.0,
         activeTimer: false))
@@ -21,20 +21,19 @@ class FoodModel extends ChangeNotifier {
         progress: 0.0,
         activeTimer: false))
     ..add(FoodType(
-        name: "Meat",
+        name: "Pork / Chicken / Shark / Snake",
         duration: 60,
         image: AssetImage("assets/Food_Bacon.png"),
         progress: 0.0,
         activeTimer: false))
     ..add(FoodType(
-        name: "Kraken/Meg",
+        name: "Kraken / Meg",
         duration: 120,
         image: AssetImage("assets/Kraken_Meat.png"),
         progress: 0.0,
         activeTimer: false));
 
   void startTimer(FoodType foodType) {
-    print(foodType.activeTimer);
     new Timer.periodic(
       Duration(milliseconds: 1),
       (Timer timer) {

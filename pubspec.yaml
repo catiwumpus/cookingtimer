@@ -33,12 +33,19 @@ dependencies:
   flutter_local_notifications: ^4.0.0
   provider: ^4.3.3
   google_fonts: ^1.1.2
+  admob_flutter: ^1.0.1
+  flutter_launcher_icons: ^0.8.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   integration_test:
     sdk: flutter
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/appicon2.jpg"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

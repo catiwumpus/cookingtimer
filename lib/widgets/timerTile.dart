@@ -20,6 +20,7 @@ class TimerTile extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(5),
               child: LinearProgressIndicator(
+                backgroundColor: Colors.transparent,
                 value: foodType.progress,
                 valueColor: AlwaysStoppedAnimation<Color>(
                     Theme.of(context).accentColor),
@@ -29,10 +30,11 @@ class TimerTile extends StatelessWidget {
           ListTile(
             leading: CircleAvatar(
               backgroundImage: foodType.image,
+              backgroundColor: Color.fromRGBO(36, 76, 92, 1),
             ),
             title: Text(
               foodType.name,
-              style: GoogleFonts.pirataOne(),
+              style: GoogleFonts.pirataOne(fontSize: 20),
             ),
             onTap: () => {
               HapticFeedback.mediumImpact(),
