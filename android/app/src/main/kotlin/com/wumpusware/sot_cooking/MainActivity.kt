@@ -1,4 +1,4 @@
-package com.example.sot_cooking
+package com.wumpusware.sot_cooking
 
 import io.flutter.embedding.android.FlutterActivity
 
